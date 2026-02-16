@@ -3,35 +3,108 @@
 import { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Palette, Monitor, Share2, Gamepad2 } from "lucide-react";
+import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 
 const services = [
   {
     icon: Palette,
+    number: "01",
     title: "Grafik Tasarım",
-    description:
-      "Broşür, katalog, afiş ve görsel tasarım projelerinde markalara etkileyici ve akılda kalıcı çözümler sunuyorum.",
-    tools: ["Photoshop", "Illustrator", "Dimension", "Lightroom"],
+    testimonials: [
+      {
+        name: "Logo & Marka Kimliği",
+        designation: "Photoshop • Illustrator",
+        quote: "Markanızın özünü yansıtan, akılda kalıcı logolar ve tutarlı marka kimlikleri tasarlıyorum.",
+        src: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=600&fit=crop",
+      },
+      {
+        name: "Broşür & Katalog",
+        designation: "Illustrator • InDesign",
+        quote: "Ürün ve hizmetlerinizi en etkili şekilde tanıtan profesyonel basılı materyaller hazırlıyorum.",
+        src: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=600&h=600&fit=crop",
+      },
+      {
+        name: "Afiş & Poster",
+        designation: "Photoshop • Dimension",
+        quote: "Dikkat çekici ve mesajı net ileten etkileyici afiş ve poster tasarımları oluşturuyorum.",
+        src: "https://images.unsplash.com/photo-1609921212029-bb5a28e60960?w=600&h=600&fit=crop",
+      },
+    ],
   },
   {
     icon: Monitor,
+    number: "02",
     title: "Web Tasarım",
-    description:
-      "Modern, kullanıcı dostu ve responsive web siteleri tasarlayarak dijital varlıkları güçlendiriyorum.",
-    tools: ["UI/UX", "Web Sitesi", "Responsive", "Prototipleme"],
+    testimonials: [
+      {
+        name: "Kurumsal Web Sitesi",
+        designation: "UI/UX • Responsive",
+        quote: "Modern ve kullanıcı dostu kurumsal web siteleri tasarlayarak dijital varlığınızı güçlendiriyorum.",
+        src: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&h=600&fit=crop",
+      },
+      {
+        name: "E-Ticaret Arayüzü",
+        designation: "Web Sitesi • Prototipleme",
+        quote: "Satış odaklı, kolay kullanılabilir e-ticaret arayüzleri ile dönüşüm oranlarınızı artırıyorum.",
+        src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=600&fit=crop",
+      },
+      {
+        name: "Dashboard & Panel",
+        designation: "UI/UX • Veri Görselleştirme",
+        quote: "Karmaşık verileri anlaşılır ve yönetilebilir panolara dönüştürüyorum.",
+        src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=600&fit=crop",
+      },
+    ],
   },
   {
     icon: Share2,
+    number: "03",
     title: "Sosyal Medya",
-    description:
-      "Sosyal medya hesaplarının görsel kimliğini oluşturuyor, içerik üretiyor ve profesyonel şekilde yönetiyorum.",
-    tools: ["İçerik Üretimi", "Marka Yönetimi", "Kampanya", "Post & Story"],
+    testimonials: [
+      {
+        name: "İçerik Tasarımı",
+        designation: "Post & Story • Reels",
+        quote: "Markanıza özel, dikkat çekici sosyal medya içerikleri tasarlıyor ve üretiyorum.",
+        src: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=600&fit=crop",
+      },
+      {
+        name: "Reklam Kampanyası",
+        designation: "Kampanya • Hedefleme",
+        quote: "Hedef kitlenize ulaşan, etkili ve dönüşüm odaklı reklam kampanyaları oluşturuyorum.",
+        src: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=600&h=600&fit=crop",
+      },
+      {
+        name: "Marka Stratejisi",
+        designation: "Marka Yönetimi • Analiz",
+        quote: "Sosyal medyada tutarlı ve güçlü bir marka kimliği oluşturmanıza yardımcı oluyorum.",
+        src: "https://images.unsplash.com/photo-1533750516457-a7f992034fec?w=600&h=600&fit=crop",
+      },
+    ],
   },
   {
     icon: Gamepad2,
+    number: "04",
     title: "Video & Oyun",
-    description:
-      "Video kurgu ve oyun tasarımı alanlarında yaratıcı ve etkileyici projeler geliştiriyorum.",
-    tools: ["Premiere Pro", "Unity", "Level Design", "Motion"],
+    testimonials: [
+      {
+        name: "Video Kurgu",
+        designation: "Premiere Pro • After Effects",
+        quote: "Ham görüntülerinizi profesyonel ve etkileyici videolara dönüştürüyorum.",
+        src: "https://images.unsplash.com/photo-1535016120720-40c646be5580?w=600&h=600&fit=crop",
+      },
+      {
+        name: "Motion Grafik",
+        designation: "After Effects • Motion",
+        quote: "Dinamik ve göz alıcı hareket grafikleri ile içeriklerinizi canlandırıyorum.",
+        src: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&h=600&fit=crop",
+      },
+      {
+        name: "Oyun Tasarımı",
+        designation: "Unity • Level Design",
+        quote: "Yaratıcı oyun mekanikleri ve seviye tasarımları ile benzersiz deneyimler oluşturuyorum.",
+        src: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600&h=600&fit=crop",
+      },
+    ],
   },
 ];
 
@@ -64,7 +137,6 @@ function AnimatedCounter({ target, isInView, delay }: { target: number; isInView
       }
       const elapsed = now - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      // Ease out cubic
       const eased = 1 - Math.pow(1 - progress, 3);
       setCount(Math.round(eased * target));
       if (progress < 1) requestAnimationFrame(tick);
@@ -83,27 +155,70 @@ export default function Skills() {
   const barsInView = useInView(barsRef, { once: true, margin: "-50px" });
 
   return (
-    <section id="skills" className="bg-[#F8F8F8] py-40 lg:py-56" ref={ref}>
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16">
+    <section id="skills" className="bg-[var(--bg-muted)] py-40 lg:py-56 relative overflow-hidden" ref={ref}>
+      {/* Subtle dot pattern background */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.3]"
+        style={{
+          backgroundImage: "radial-gradient(circle, var(--dot-pattern) 1px, transparent 1px)",
+          backgroundSize: "32px 32px",
+        }}
+      />
+
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16 relative">
 
         {/* Header */}
         <motion.span
           initial={{ opacity: 0, x: -20 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="block font-sans text-xs tracking-[0.25em] uppercase text-[#B0B0B0] mb-8"
+          className="block font-sans text-xs tracking-[0.25em] uppercase text-[var(--fg-faint)] mb-8"
         >
           02 — Hizmetler
         </motion.span>
 
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[#1A1A1A] leading-tight mb-20 lg:mb-28"
+          className="relative inline-block mb-20 lg:mb-28"
         >
-          Neler <span className="italic">yapıyorum</span>
-        </motion.h2>
+          {/* Hand-drawn circle SVG */}
+          <motion.svg
+            width="100%"
+            height="100%"
+            viewBox="0 0 500 120"
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            className="absolute -inset-x-14 -inset-y-8 w-[calc(100%+112px)] h-[calc(100%+64px)] pointer-events-none"
+            preserveAspectRatio="none"
+          >
+            <title>Decoration</title>
+            <motion.path
+              d="M 460 20 C 500 55, 490 100, 250 105 C 50 108, 10 85, 15 60 C 20 30, 80 12, 250 15 C 400 12, 460 30, 445 45"
+              fill="none"
+              strokeWidth="4.5"
+              stroke="var(--fg)"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              variants={{
+                hidden: { pathLength: 0, opacity: 0 },
+                visible: {
+                  pathLength: 1,
+                  opacity: 1,
+                  transition: {
+                    pathLength: { duration: 2, delay: 0.5, ease: [0.43, 0.13, 0.23, 0.96] },
+                    opacity: { duration: 0.4, delay: 0.5 },
+                  },
+                },
+              }}
+            />
+          </motion.svg>
+
+          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[var(--fg)] leading-tight relative z-10">
+            Neler <span className="italic">yapıyorum</span>
+          </h2>
+        </motion.div>
 
         {/* 2x2 Service Grid */}
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-40 lg:mb-56">
@@ -112,48 +227,30 @@ export default function Skills() {
             return (
               <motion.div
                 key={service.title}
-                initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                initial={{ opacity: 0, y: 50, scale: 0.95 }}
                 animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
                 transition={{ duration: 0.7, delay: 0.2 + index * 0.12, ease: [0.16, 1, 0.3, 1] }}
-                className="relative bg-white p-10 sm:p-12 lg:p-14 group overflow-hidden transition-all duration-700 hover:shadow-[0_12px_48px_rgba(0,0,0,0.06)]"
+                className="bg-[var(--bg-card)] rounded-2xl p-6 sm:p-8 border border-[var(--border-light)] transition-shadow duration-500 hover:shadow-[0_20px_60px_var(--hover-shadow)]"
               >
-                {/* Hover accent line at top */}
-                <div className="absolute top-0 left-0 w-full h-[2px] bg-[#1A1A1A] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" />
-
-                <div className="flex items-start justify-between mb-10 lg:mb-12">
-                  <motion.div
-                    whileHover={{ rotate: -10, scale: 1.1 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                    className="w-14 h-14 rounded-full border border-[#E8E8E8] flex items-center justify-center text-[#999] group-hover:bg-[#1A1A1A] group-hover:border-[#1A1A1A] group-hover:text-white transition-all duration-500"
-                  >
-                    <Icon size={20} strokeWidth={1.5} />
-                  </motion.div>
-                  <span className="font-sans text-[2.5rem] font-extralight text-[#F0F0F0] leading-none group-hover:text-[#E0E0E0] transition-colors duration-500">
-                    {String(index + 1).padStart(2, "0")}
+                {/* Service header */}
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-[var(--bg-alt)] border border-[var(--border)] flex items-center justify-center text-[var(--fg-muted)]">
+                      <Icon size={18} strokeWidth={1.5} />
+                    </div>
+                    <h3 className="font-serif text-xl lg:text-2xl text-[var(--fg)] italic">
+                      {service.title}
+                    </h3>
+                  </div>
+                  <span className="font-sans text-3xl font-extralight text-[var(--card-number)] leading-none">
+                    {service.number}
                   </span>
                 </div>
 
-                <h3 className="font-serif text-2xl lg:text-3xl text-[#1A1A1A] italic mb-5 lg:mb-6 group-hover:translate-x-2 transition-transform duration-500">
-                  {service.title}
-                </h3>
-
-                <p className="font-sans text-[0.95rem] text-[#888] leading-relaxed mb-10 lg:mb-12">
-                  {service.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2">
-                  {service.tools.map((tool, ti) => (
-                    <motion.span
-                      key={tool}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={isInView ? { opacity: 1, y: 0 } : {}}
-                      transition={{ duration: 0.4, delay: 0.5 + index * 0.12 + ti * 0.06 }}
-                      className="font-sans text-xs text-[#999] border border-[#EBEBEB] px-4 py-2 rounded-full group-hover:border-[#CDCDCD] group-hover:text-[#666] transition-all duration-500"
-                    >
-                      {tool}
-                    </motion.span>
-                  ))}
-                </div>
+                <AnimatedTestimonials
+                  testimonials={service.testimonials}
+                  className="font-sans antialiased"
+                />
               </motion.div>
             );
           })}
@@ -166,13 +263,13 @@ export default function Skills() {
             animate={barsInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
-            <span className="block font-sans text-xs tracking-[0.25em] uppercase text-[#B0B0B0] mb-8">
+            <span className="block font-sans text-xs tracking-[0.25em] uppercase text-[var(--fg-faint)] mb-8">
               Yetkinlikler
             </span>
-            <h3 className="font-serif text-3xl sm:text-4xl text-[#1A1A1A] leading-tight mb-6">
+            <h3 className="font-serif text-3xl sm:text-4xl text-[var(--fg)] leading-tight mb-6">
               Kullandığım <span className="italic">araçlar</span>
             </h3>
-            <p className="font-sans text-base text-[#999] leading-relaxed max-w-sm">
+            <p className="font-sans text-base text-[var(--fg-muted)] leading-relaxed max-w-sm">
               Her projede doğru aracı seçerek en iyi sonucu elde ediyorum.
               Sürekli gelişen teknolojiyi takip ederek kendimi güncelliyorum.
             </p>
@@ -192,14 +289,14 @@ export default function Skills() {
                 transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
               >
                 <div className="flex items-baseline justify-between mb-3">
-                  <span className="font-sans text-sm text-[#1A1A1A] font-medium">
+                  <span className="font-sans text-sm text-[var(--fg)] font-medium">
                     {skill.name}
                   </span>
-                  <span className="font-sans text-sm text-[#1A1A1A] tabular-nums font-medium">
+                  <span className="font-sans text-sm text-[var(--fg)] tabular-nums font-medium">
                     <AnimatedCounter target={skill.level} isInView={barsInView} delay={0.4 + index * 0.1} />
                   </span>
                 </div>
-                <div className="w-full h-1.5 bg-[#E5E5E5] rounded-full overflow-hidden">
+                <div className="w-full h-1.5 bg-[var(--skill-bar-bg)] rounded-full overflow-hidden">
                   <motion.div
                     initial={{ width: 0 }}
                     animate={barsInView ? { width: `${skill.level}%` } : {}}
@@ -208,7 +305,7 @@ export default function Skills() {
                       delay: 0.4 + index * 0.1,
                       ease: [0.16, 1, 0.3, 1],
                     }}
-                    className="h-full bg-[#1A1A1A] rounded-full"
+                    className="h-full bg-[var(--accent)] rounded-full"
                   />
                 </div>
               </motion.div>

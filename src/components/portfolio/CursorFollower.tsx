@@ -61,12 +61,13 @@ export default function CursorFollower() {
           width: 32,
           height: 32,
           borderRadius: "50%",
-          border: "1px solid rgba(26, 26, 26, 0.15)",
+          border: "1px solid var(--cursor-ring)",
           pointerEvents: "none",
           zIndex: 9999,
           scale: hovering ? 1.8 : 1,
           opacity: hovering ? 0.6 : 0.4,
           transition: "scale 0.3s, opacity 0.3s",
+          willChange: "transform",
         }}
       />
       {/* Inner dot */}
@@ -80,11 +81,12 @@ export default function CursorFollower() {
           width: 6,
           height: 6,
           borderRadius: "50%",
-          background: "#1A1A1A",
+          background: "var(--fg)",
           pointerEvents: "none",
           zIndex: 9999,
           scale: hovering ? 0 : 1,
           transition: "scale 0.3s",
+          willChange: "transform",
         }}
       />
     </>

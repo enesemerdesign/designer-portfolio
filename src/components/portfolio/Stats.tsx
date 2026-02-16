@@ -74,21 +74,32 @@ export default function Stats() {
           className="w-full h-px bg-white/10 origin-left mb-20 lg:mb-24"
         />
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.1 + index * 0.12, ease: [0.16, 1, 0.3, 1] }}
-              className="text-center relative"
+              whileHover={{ y: -4, scale: 1.02 }}
+              className="text-center relative group"
             >
-              <span className="block font-serif text-5xl sm:text-6xl lg:text-7xl text-white italic mb-4">
-                <AnimatedNumber target={stat.value} suffix={stat.suffix} isInView={isInView} delay={0.2 + index * 0.12} />
-              </span>
-              <span className="font-sans text-[0.7rem] tracking-[0.2em] uppercase text-white/30">
-                {stat.label}
-              </span>
+              <div className="border border-white/[0.08] rounded-2xl p-8 lg:p-10 backdrop-blur-sm bg-white/[0.03] hover:bg-white/[0.06] hover:border-white/[0.15] transition-all duration-500">
+                <span
+                  className="block font-serif text-5xl sm:text-6xl lg:text-7xl italic mb-4"
+                  style={{
+                    background: "linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.5) 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
+                >
+                  <AnimatedNumber target={stat.value} suffix={stat.suffix} isInView={isInView} delay={0.2 + index * 0.12} />
+                </span>
+                <span className="font-sans text-[0.7rem] tracking-[0.2em] uppercase text-white/30 group-hover:text-white/50 transition-colors duration-500">
+                  {stat.label}
+                </span>
+              </div>
             </motion.div>
           ))}
         </div>

@@ -21,11 +21,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="tr">
+    <html lang="tr" suppressHydrationWarning>
       <head>
         <title>Enes Emer — Grafik Tasarımcı</title>
         <meta name="description" content="Enes Emer — Grafik & Web Tasarımcı. Markalara görsel kimlik kazandıran yaratıcı tasarımcı." />
         <link rel="icon" href="/favicon.ico" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{if(localStorage.getItem('theme')==='dark'){document.documentElement.classList.add('dark')}}catch(e){}})();`,
+          }}
+        />
       </head>
       <body className={`${playfair.variable} ${spaceGrotesk.variable} antialiased`}>
         {children}

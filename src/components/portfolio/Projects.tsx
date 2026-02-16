@@ -90,7 +90,7 @@ function ProjectCard({ project, index }: { project: (typeof projects)[0]; index:
         }
       }}
     >
-      <div className="img-hover mb-6 relative bg-[#F5F5F5]" style={{ aspectRatio: "4/5" }}>
+      <div className="img-hover mb-6 relative bg-[var(--surface)]" style={{ aspectRatio: "4/5" }}>
         <img
           src={project.image}
           alt={project.title}
@@ -118,15 +118,15 @@ function ProjectCard({ project, index }: { project: (typeof projects)[0]; index:
 
       <div style={{ display: "flex", justifyContent: "space-between", gap: 16 }}>
         <div>
-          <p className="font-sans text-[#B0B0B0]" style={{ fontSize: "0.65rem", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: 8 }}>
+          <p className="font-sans text-[var(--fg-faint)]" style={{ fontSize: "0.65rem", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: 8 }}>
             {project.category}
           </p>
-          <h3 className="font-serif text-[#1A1A1A] group-hover:opacity-50" style={{ fontSize: "1.35rem", transition: "opacity 0.3s" }}>
+          <h3 className="font-serif text-[var(--fg)] group-hover:opacity-50" style={{ fontSize: "1.35rem", transition: "opacity 0.3s" }}>
             {project.title}
           </h3>
-          <p className="font-sans text-[#B0B0B0]" style={{ fontSize: "0.875rem", marginTop: 6 }}>{project.client}</p>
+          <p className="font-sans text-[var(--fg-faint)]" style={{ fontSize: "0.875rem", marginTop: 6 }}>{project.client}</p>
         </div>
-        <span className="font-sans text-[#D0D0D0]" style={{ fontSize: "0.65rem", letterSpacing: "0.1em", flexShrink: 0, marginTop: 4 }}>
+        <span className="font-sans text-[var(--fg-extra-ghost)]" style={{ fontSize: "0.65rem", letterSpacing: "0.1em", flexShrink: 0, marginTop: 4 }}>
           {String(index + 1).padStart(2, "0")}
         </span>
       </div>
@@ -159,10 +159,10 @@ export default function Projects() {
           transition={{ duration: 0.8 }}
           className="mb-16 lg:mb-24"
         >
-          <span className="font-sans text-[0.7rem] tracking-[0.25em] uppercase text-[#B0B0B0] block mb-6">
+          <span className="font-sans text-[0.7rem] tracking-[0.25em] uppercase text-[var(--fg-faint)] block mb-6">
             01 — Çalışmalar
           </span>
-          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[#1A1A1A]">
+          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[var(--fg)]">
             Seçilmiş <span className="italic">projeler</span>
           </h2>
         </motion.div>
@@ -180,8 +180,8 @@ export default function Projects() {
           onMouseLeave={() => setPaused(false)}
         >
           {/* Fade edges */}
-          <div style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: 120, background: "linear-gradient(to left, white, transparent)", zIndex: 10, pointerEvents: "none" }} />
-          <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 120, background: "linear-gradient(to right, white, transparent)", zIndex: 10, pointerEvents: "none" }} />
+          <div style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: 120, background: "linear-gradient(to left, var(--bg), transparent)", zIndex: 10, pointerEvents: "none" }} />
+          <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 120, background: "linear-gradient(to right, var(--bg), transparent)", zIndex: 10, pointerEvents: "none" }} />
 
           {/* Scrolling track: two identical groups */}
           <div

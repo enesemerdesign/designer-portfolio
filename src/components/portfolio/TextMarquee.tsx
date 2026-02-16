@@ -31,7 +31,10 @@ function MarqueeRow() {
             paddingRight: 40,
           }}
         >
-          <span className="font-serif text-[clamp(3rem,6vw,5.5rem)] text-[#1A1A1A]/[0.06] italic whitespace-nowrap select-none">
+          <span
+            className="font-serif text-[clamp(3rem,6vw,5.5rem)] italic whitespace-nowrap select-none"
+            style={{ color: "var(--marquee-text)" }}
+          >
             {word}
           </span>
           <span
@@ -39,7 +42,7 @@ function MarqueeRow() {
               width: 6,
               height: 6,
               borderRadius: "50%",
-              background: "rgba(26,26,26,0.08)",
+              background: "var(--marquee-dot)",
               flexShrink: 0,
             }}
           />
