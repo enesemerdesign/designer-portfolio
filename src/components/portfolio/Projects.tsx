@@ -76,8 +76,7 @@ function ProjectCard({ project, index }: { project: (typeof projects)[0]; index:
 
   return (
     <div
-      className="group cursor-pointer"
-      style={{ width: 420, flexShrink: 0 }}
+      className="project-card group cursor-pointer"
       onMouseEnter={() => {
         setIsHovered(true);
         videoRef.current?.play();
@@ -116,17 +115,17 @@ function ProjectCard({ project, index }: { project: (typeof projects)[0]; index:
         </video>
       </div>
 
-      <div style={{ display: "flex", justifyContent: "space-between", gap: 16 }}>
+      <div className="project-card-meta">
         <div>
-          <p className="font-sans text-[var(--fg-faint)]" style={{ fontSize: "0.65rem", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: 8 }}>
+          <p className="project-card-category">
             {project.category}
           </p>
-          <h3 className="font-serif text-[var(--fg)] group-hover:opacity-50" style={{ fontSize: "1.35rem", transition: "opacity 0.3s" }}>
+          <h3 className="project-card-title group-hover:opacity-50">
             {project.title}
           </h3>
-          <p className="font-sans text-[var(--fg-faint)]" style={{ fontSize: "0.875rem", marginTop: 6 }}>{project.client}</p>
+          <p className="project-card-client">{project.client}</p>
         </div>
-        <span className="font-sans text-[var(--fg-extra-ghost)]" style={{ fontSize: "0.65rem", letterSpacing: "0.1em", flexShrink: 0, marginTop: 4 }}>
+        <span className="project-card-index">
           {String(index + 1).padStart(2, "0")}
         </span>
       </div>
@@ -136,7 +135,7 @@ function ProjectCard({ project, index }: { project: (typeof projects)[0]; index:
 
 function CardGroup() {
   return (
-    <div style={{ display: "flex", gap: 32, flexShrink: 0, paddingRight: 32 }}>
+    <div className="flex gap-6 sm:gap-8 flex-shrink-0 pr-6 sm:pr-8">
       {projects.map((project, i) => (
         <ProjectCard key={project.id} project={project} index={i} />
       ))}
@@ -152,17 +151,17 @@ export default function Projects() {
   return (
     <section id="projects" className="py-28 lg:py-40" ref={ref}>
       {/* Header */}
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16">
+      <div className="container-section">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
           className="mb-16 lg:mb-24"
         >
-          <span className="font-sans text-[0.7rem] tracking-[0.25em] uppercase text-[var(--fg-faint)] block mb-6">
+          <span className="section-label block mb-6">
             01 — Çalışmalar
           </span>
-          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[var(--fg)]">
+          <h2 className="section-title">
             Seçilmiş <span className="italic">projeler</span>
           </h2>
         </motion.div>
@@ -180,8 +179,8 @@ export default function Projects() {
           onMouseLeave={() => setPaused(false)}
         >
           {/* Fade edges */}
-          <div style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: 120, background: "linear-gradient(to left, var(--bg), transparent)", zIndex: 10, pointerEvents: "none" }} />
-          <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 120, background: "linear-gradient(to right, var(--bg), transparent)", zIndex: 10, pointerEvents: "none" }} />
+          <div className="marquee-fade-right" />
+          <div className="marquee-fade-left" />
 
           {/* Scrolling track: two identical groups */}
           <div

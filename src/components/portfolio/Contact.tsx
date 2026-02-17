@@ -99,7 +99,7 @@ export default function Contact() {
         style={{ transformOrigin: "center" }}
       />
 
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16 pt-28 lg:pt-40 pb-20 lg:pb-32">
+      <div className="container-section pt-28 lg:pt-40 pb-20 lg:pb-32">
 
         {/* ── Hero headline area ── */}
         <div className="mb-24 lg:mb-32">
@@ -120,7 +120,7 @@ export default function Contact() {
           </motion.div>
 
           {/* Big staggered headline */}
-          <h2 className="font-serif text-[clamp(2.8rem,8vw,7rem)] leading-[0.95] text-[var(--fg)] tracking-[-0.03em]">
+          <h2 className="section-title-lg">
             <div className="overflow-hidden">
               <RevealText text="Hayalinizdeki" className="" delay={0.1} show={isInView} />
             </div>
@@ -232,7 +232,7 @@ export default function Contact() {
                   <a
                     key={s.label}
                     href={s.href}
-                    className="w-10 h-10 rounded-full border border-[var(--border)] flex items-center justify-center text-[var(--fg-ghost)] hover:bg-[var(--accent)] hover:border-[var(--accent)] hover:text-[var(--accent-fg)] transition-all duration-500"
+                    className="icon-btn"
                   >
                     <SIcon size={14} strokeWidth={1.5} />
                   </a>

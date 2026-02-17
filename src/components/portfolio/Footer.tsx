@@ -44,7 +44,7 @@ export default function Footer() {
       </motion.div>
 
       {/* CTA */}
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16 pt-28 lg:pt-40 pb-20 lg:pb-28">
+      <div className="container-section pt-28 lg:pt-40 pb-20 lg:pb-28">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -92,7 +92,7 @@ export default function Footer() {
       </div>
 
       {/* Divider */}
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16">
+      <div className="container-section">
         <motion.div
           initial={{ scaleX: 0 }}
           animate={isInView ? { scaleX: 1 } : {}}
@@ -102,7 +102,7 @@ export default function Footer() {
       </div>
 
       {/* Grid */}
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16 py-16 lg:py-20">
+      <div className="container-section py-16 lg:py-20">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Brand */}
           <motion.div
@@ -229,10 +229,10 @@ export default function Footer() {
       </div>
 
       {/* Bottom */}
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16">
+      <div className="container-section">
         <div className="w-full h-px bg-white/10" />
       </div>
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16 py-6">
+      <div className="container-section py-6">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="font-sans text-[0.75rem] text-white/15">
             &copy; {currentYear} Enes Emer. Tüm hakları saklıdır.

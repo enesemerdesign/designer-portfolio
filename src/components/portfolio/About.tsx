@@ -48,7 +48,7 @@ export default function About() {
         <Logo3D className="w-full h-full" />
       </motion.div>
 
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16 relative" ref={parallaxRef}>
+      <div className="container-section relative" ref={parallaxRef}>
 
         {/* Label */}
         <div className="flex items-center gap-6 mb-16 lg:mb-24">
@@ -56,7 +56,7 @@ export default function About() {
             initial={{ opacity: 0, x: -20 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="font-sans text-xs tracking-[0.25em] uppercase text-[var(--fg-faint)]"
+            className="section-label"
           >
             03 — Hakkımda
           </motion.span>
@@ -64,7 +64,7 @@ export default function About() {
             initial={{ scaleX: 0 }}
             animate={isInView ? { scaleX: 1 } : {}}
             transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="flex-1 h-px bg-[var(--border)] origin-left"
+            className="flex-1 divider origin-left"
           />
         </div>
 
@@ -75,7 +75,7 @@ export default function About() {
               initial={{ y: "100%" }}
               animate={isInView ? { y: 0 } : {}}
               transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-[var(--fg)] leading-[1.1]"
+              className="section-title xl:!text-7xl leading-[1.1]"
             >
               Merhaba, ben
             </motion.h2>
@@ -85,19 +85,9 @@ export default function About() {
               initial={{ y: "100%" }}
               animate={isInView ? { y: 0 } : {}}
               transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-[1.1]"
+              className="section-title xl:!text-7xl leading-[1.1]"
             >
-              <span
-                className="italic"
-                style={{
-                  background: "linear-gradient(135deg, var(--fg) 0%, var(--fg-mid) 50%, var(--fg) 100%)",
-                  backgroundSize: "200% 200%",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                  animation: "shimmer 4s ease-in-out infinite",
-                }}
-              >
+              <span className="italic gradient-text">
                 Enes Emer
               </span>
               <span className="text-[var(--fg-faint)]">.</span>
@@ -115,12 +105,10 @@ export default function About() {
             transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7 group"
           >
-            <div className="bg-[var(--bg-alt)] border border-[var(--border-light)] rounded-3xl p-8 lg:p-12 h-full hover:bg-[var(--bg-card)] hover:shadow-[0_24px_64px_var(--hover-shadow)] hover:border-[var(--border-strong)] transition-all duration-700 relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[var(--fg)] to-transparent origin-center scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" />
-
+            <div className="card-base card-base-lg card-border-glow">
               <div className="flex items-center gap-3 mb-8">
                 <Sparkles size={16} className="text-[var(--fg-ghost)]" />
-                <span className="font-sans text-[0.6rem] tracking-[0.3em] uppercase text-[var(--fg-faint)]">Hakkımda</span>
+                <span className="card-label !mb-0">Hakkımda</span>
               </div>
 
               <p className="font-sans text-base lg:text-lg text-[var(--fg-secondary)] leading-[2] mb-6">
@@ -148,18 +136,17 @@ export default function About() {
               whileHover={{ y: -4 }}
               className="group flex-1"
             >
-              <div className="bg-[var(--bg-alt)] border border-[var(--border-light)] rounded-3xl p-8 lg:p-10 h-full hover:bg-[var(--bg-card)] hover:shadow-[0_24px_64px_var(--hover-shadow)] hover:border-[var(--border-strong)] transition-all duration-700 relative overflow-hidden">
-                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[var(--fg)] to-transparent origin-center scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" />
-                <span className="absolute top-4 right-5 font-sans text-[3rem] font-extralight text-[var(--card-number)] leading-none">01</span>
+              <div className="card-base card-border-glow relative">
+                <span className="card-number">01</span>
 
                 <motion.div
                   whileHover={{ rotate: -15, scale: 1.1 }}
                   transition={{ type: "spring", stiffness: 300 }}
-                  className="w-12 h-12 rounded-2xl bg-[var(--bg)] border border-[var(--border)] flex items-center justify-center text-[var(--fg-muted)] group-hover:bg-[var(--accent)] group-hover:border-[var(--accent)] group-hover:text-[var(--accent-fg)] transition-all duration-500 mb-5"
+                  className="icon-box mb-5"
                 >
                   <GraduationCap size={18} strokeWidth={1.5} />
                 </motion.div>
-                <span className="block font-sans text-[0.6rem] tracking-[0.25em] uppercase text-[var(--fg-faint)] mb-2">Eğitim</span>
+                <span className="card-label">Eğitim</span>
                 <span className="block font-serif text-xl text-[var(--fg)] leading-snug mb-1">Necmettin Erbakan Ünv.</span>
                 <span className="block font-sans text-sm text-[var(--fg-faint)]">Yönetim Bilişim Sistemleri</span>
               </div>
@@ -198,20 +185,19 @@ export default function About() {
             whileHover={{ y: -4 }}
             className="lg:col-span-6 group"
           >
-            <div className="bg-[var(--bg-alt)] border border-[var(--border-light)] rounded-3xl p-8 lg:p-10 h-full hover:bg-[var(--bg-card)] hover:shadow-[0_24px_64px_var(--hover-shadow)] hover:border-[var(--border-strong)] transition-all duration-700 relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[var(--fg)] to-transparent origin-center scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" />
-              <span className="absolute top-4 right-5 font-sans text-[3rem] font-extralight text-[var(--card-number)] leading-none">03</span>
+            <div className="card-base card-border-glow relative">
+              <span className="card-number">03</span>
 
               <div className="flex items-start gap-6">
                 <motion.div
                   whileHover={{ rotate: -15, scale: 1.1 }}
                   transition={{ type: "spring", stiffness: 300 }}
-                  className="w-12 h-12 rounded-2xl bg-[var(--bg)] border border-[var(--border)] flex items-center justify-center text-[var(--fg-muted)] group-hover:bg-[var(--accent)] group-hover:border-[var(--accent)] group-hover:text-[var(--accent-fg)] transition-all duration-500 flex-shrink-0"
+                  className="icon-box"
                 >
                   <Languages size={18} strokeWidth={1.5} />
                 </motion.div>
                 <div>
-                  <span className="block font-sans text-[0.6rem] tracking-[0.25em] uppercase text-[var(--fg-faint)] mb-2">Diller</span>
+                  <span className="card-label">Diller</span>
                   <span className="block font-serif text-xl text-[var(--fg)] leading-snug mb-1">Türkçe & İngilizce</span>
                   <span className="block font-sans text-sm text-[var(--fg-faint)]">Ana Dil / B1 Seviye</span>
                 </div>
@@ -226,20 +212,19 @@ export default function About() {
             whileHover={{ y: -4 }}
             className="lg:col-span-6 group"
           >
-            <div className="bg-[var(--bg-alt)] border border-[var(--border-light)] rounded-3xl p-8 lg:p-10 h-full hover:bg-[var(--bg-card)] hover:shadow-[0_24px_64px_var(--hover-shadow)] hover:border-[var(--border-strong)] transition-all duration-700 relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[var(--fg)] to-transparent origin-center scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" />
-              <span className="absolute top-4 right-5 font-sans text-[3rem] font-extralight text-[var(--card-number)] leading-none">04</span>
+            <div className="card-base card-border-glow relative">
+              <span className="card-number">04</span>
 
               <div className="flex items-start gap-6">
                 <motion.div
                   whileHover={{ rotate: -15, scale: 1.1 }}
                   transition={{ type: "spring", stiffness: 300 }}
-                  className="w-12 h-12 rounded-2xl bg-[var(--bg)] border border-[var(--border)] flex items-center justify-center text-[var(--fg-muted)] group-hover:bg-[var(--accent)] group-hover:border-[var(--accent)] group-hover:text-[var(--accent-fg)] transition-all duration-500 flex-shrink-0"
+                  className="icon-box"
                 >
                   <MapPin size={18} strokeWidth={1.5} />
                 </motion.div>
                 <div>
-                  <span className="block font-sans text-[0.6rem] tracking-[0.25em] uppercase text-[var(--fg-faint)] mb-2">Lokasyon</span>
+                  <span className="card-label">Lokasyon</span>
                   <span className="block font-serif text-xl text-[var(--fg)] leading-snug mb-1">Ankara</span>
                   <span className="block font-sans text-sm text-[var(--fg-faint)]">Türkiye</span>
                 </div>

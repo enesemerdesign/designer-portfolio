@@ -2,109 +2,44 @@
 
 import { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { Palette, Monitor, Share2, Gamepad2 } from "lucide-react";
-import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
+import { AnimatedFolder, type Project } from "@/components/ui/3d-folder";
 
 const services = [
   {
-    icon: Palette,
-    number: "01",
     title: "Grafik Tasarım",
-    testimonials: [
-      {
-        name: "Logo & Marka Kimliği",
-        designation: "Photoshop • Illustrator",
-        quote: "Markanızın özünü yansıtan, akılda kalıcı logolar ve tutarlı marka kimlikleri tasarlıyorum.",
-        src: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=600&fit=crop",
-      },
-      {
-        name: "Broşür & Katalog",
-        designation: "Illustrator • InDesign",
-        quote: "Ürün ve hizmetlerinizi en etkili şekilde tanıtan profesyonel basılı materyaller hazırlıyorum.",
-        src: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=600&h=600&fit=crop",
-      },
-      {
-        name: "Afiş & Poster",
-        designation: "Photoshop • Dimension",
-        quote: "Dikkat çekici ve mesajı net ileten etkileyici afiş ve poster tasarımları oluşturuyorum.",
-        src: "https://images.unsplash.com/photo-1609921212029-bb5a28e60960?w=600&h=600&fit=crop",
-      },
-    ],
+    gradient: "linear-gradient(135deg, #e73827, #f85032)",
+    projects: [
+      { id: "g1", image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=600&fit=crop", title: "Logo & Marka Kimliği" },
+      { id: "g2", image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=600&h=600&fit=crop", title: "Broşür & Katalog" },
+      { id: "g3", image: "https://images.unsplash.com/photo-1609921212029-bb5a28e60960?w=600&h=600&fit=crop", title: "Afiş & Poster" },
+    ] as Project[],
   },
   {
-    icon: Monitor,
-    number: "02",
     title: "Web Tasarım",
-    testimonials: [
-      {
-        name: "Kurumsal Web Sitesi",
-        designation: "UI/UX • Responsive",
-        quote: "Modern ve kullanıcı dostu kurumsal web siteleri tasarlayarak dijital varlığınızı güçlendiriyorum.",
-        src: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&h=600&fit=crop",
-      },
-      {
-        name: "E-Ticaret Arayüzü",
-        designation: "Web Sitesi • Prototipleme",
-        quote: "Satış odaklı, kolay kullanılabilir e-ticaret arayüzleri ile dönüşüm oranlarınızı artırıyorum.",
-        src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=600&fit=crop",
-      },
-      {
-        name: "Dashboard & Panel",
-        designation: "UI/UX • Veri Görselleştirme",
-        quote: "Karmaşık verileri anlaşılır ve yönetilebilir panolara dönüştürüyorum.",
-        src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=600&fit=crop",
-      },
-    ],
+    gradient: "linear-gradient(to right, #f7b733, #fc4a1a)",
+    projects: [
+      { id: "w1", image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&h=600&fit=crop", title: "Kurumsal Web Sitesi" },
+      { id: "w2", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=600&fit=crop", title: "E-Ticaret Arayüzü" },
+      { id: "w3", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=600&fit=crop", title: "Dashboard & Panel" },
+    ] as Project[],
   },
   {
-    icon: Share2,
-    number: "03",
     title: "Sosyal Medya",
-    testimonials: [
-      {
-        name: "İçerik Tasarımı",
-        designation: "Post & Story • Reels",
-        quote: "Markanıza özel, dikkat çekici sosyal medya içerikleri tasarlıyor ve üretiyorum.",
-        src: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=600&fit=crop",
-      },
-      {
-        name: "Reklam Kampanyası",
-        designation: "Kampanya • Hedefleme",
-        quote: "Hedef kitlenize ulaşan, etkili ve dönüşüm odaklı reklam kampanyaları oluşturuyorum.",
-        src: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=600&h=600&fit=crop",
-      },
-      {
-        name: "Marka Stratejisi",
-        designation: "Marka Yönetimi • Analiz",
-        quote: "Sosyal medyada tutarlı ve güçlü bir marka kimliği oluşturmanıza yardımcı oluyorum.",
-        src: "https://images.unsplash.com/photo-1533750516457-a7f992034fec?w=600&h=600&fit=crop",
-      },
-    ],
+    gradient: "linear-gradient(135deg, #00c6ff, #0072ff)",
+    projects: [
+      { id: "s1", image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=600&fit=crop", title: "İçerik Tasarımı" },
+      { id: "s2", image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=600&h=600&fit=crop", title: "Reklam Kampanyası" },
+      { id: "s3", image: "https://images.unsplash.com/photo-1533750516457-a7f992034fec?w=600&h=600&fit=crop", title: "Marka Stratejisi" },
+    ] as Project[],
   },
   {
-    icon: Gamepad2,
-    number: "04",
     title: "Video & Oyun",
-    testimonials: [
-      {
-        name: "Video Kurgu",
-        designation: "Premiere Pro • After Effects",
-        quote: "Ham görüntülerinizi profesyonel ve etkileyici videolara dönüştürüyorum.",
-        src: "https://images.unsplash.com/photo-1535016120720-40c646be5580?w=600&h=600&fit=crop",
-      },
-      {
-        name: "Motion Grafik",
-        designation: "After Effects • Motion",
-        quote: "Dinamik ve göz alıcı hareket grafikleri ile içeriklerinizi canlandırıyorum.",
-        src: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&h=600&fit=crop",
-      },
-      {
-        name: "Oyun Tasarımı",
-        designation: "Unity • Level Design",
-        quote: "Yaratıcı oyun mekanikleri ve seviye tasarımları ile benzersiz deneyimler oluşturuyorum.",
-        src: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600&h=600&fit=crop",
-      },
-    ],
+    gradient: "linear-gradient(135deg, #8e2de2, #4a00e0)",
+    projects: [
+      { id: "v1", image: "https://images.unsplash.com/photo-1535016120720-40c646be5580?w=600&h=600&fit=crop", title: "Video Kurgu" },
+      { id: "v2", image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&h=600&fit=crop", title: "Motion Grafik" },
+      { id: "v3", image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600&h=600&fit=crop", title: "Oyun Tasarımı" },
+    ] as Project[],
   },
 ];
 
@@ -165,14 +100,14 @@ export default function Skills() {
         }}
       />
 
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16 relative">
+      <div className="container-section relative">
 
         {/* Header */}
         <motion.span
           initial={{ opacity: 0, x: -20 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="block font-sans text-xs tracking-[0.25em] uppercase text-[var(--fg-faint)] mb-8"
+          className="section-label block mb-8"
         >
           02 — Hizmetler
         </motion.span>
@@ -215,45 +150,29 @@ export default function Skills() {
             />
           </motion.svg>
 
-          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[var(--fg)] leading-tight relative z-10">
+          <h2 className="section-title leading-tight relative z-10">
             Neler <span className="italic">yapıyorum</span>
           </h2>
         </motion.div>
 
-        {/* 2x2 Service Grid */}
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-40 lg:mb-56">
-          {services.map((service, index) => {
-            const Icon = service.icon;
-            return (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 50, scale: 0.95 }}
-                animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-                transition={{ duration: 0.7, delay: 0.2 + index * 0.12, ease: [0.16, 1, 0.3, 1] }}
-                className="bg-[var(--bg-card)] rounded-2xl p-6 sm:p-8 border border-[var(--border-light)] transition-shadow duration-500 hover:shadow-[0_20px_60px_var(--hover-shadow)]"
-              >
-                {/* Service header */}
-                <div className="flex items-center justify-between mb-6">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-[var(--bg-alt)] border border-[var(--border)] flex items-center justify-center text-[var(--fg-muted)]">
-                      <Icon size={18} strokeWidth={1.5} />
-                    </div>
-                    <h3 className="font-serif text-xl lg:text-2xl text-[var(--fg)] italic">
-                      {service.title}
-                    </h3>
-                  </div>
-                  <span className="font-sans text-3xl font-extralight text-[var(--card-number)] leading-none">
-                    {service.number}
-                  </span>
-                </div>
-
-                <AnimatedTestimonials
-                  testimonials={service.testimonials}
-                  className="font-sans antialiased"
-                />
-              </motion.div>
-            );
-          })}
+        {/* 2x2 Service Folder Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12 mb-40 lg:mb-56 justify-items-center">
+          {services.map((service, index) => (
+            <motion.div
+              key={service.title}
+              initial={{ opacity: 0, y: 50, scale: 0.95 }}
+              animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+              transition={{ duration: 0.7, delay: 0.2 + index * 0.12, ease: [0.16, 1, 0.3, 1] }}
+              className="w-full"
+            >
+              <AnimatedFolder
+                title={service.title}
+                projects={service.projects}
+                gradient={service.gradient}
+                className="w-full"
+              />
+            </motion.div>
+          ))}
         </div>
 
         {/* Proficiency */}
@@ -263,7 +182,7 @@ export default function Skills() {
             animate={barsInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
-            <span className="block font-sans text-xs tracking-[0.25em] uppercase text-[var(--fg-faint)] mb-8">
+            <span className="section-label block mb-8">
               Yetkinlikler
             </span>
             <h3 className="font-serif text-3xl sm:text-4xl text-[var(--fg)] leading-tight mb-6">

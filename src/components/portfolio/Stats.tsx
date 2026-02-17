@@ -65,7 +65,7 @@ export default function Stats() {
         }}
       />
 
-      <div className="relative max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16">
+      <div className="relative container-section">
         {/* Decorative top line */}
         <motion.div
           initial={{ scaleX: 0 }}
@@ -74,7 +74,7 @@ export default function Stats() {
           className="w-full h-px bg-white/10 origin-left mb-20 lg:mb-24"
         />
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-5">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
@@ -84,7 +84,7 @@ export default function Stats() {
               whileHover={{ y: -4, scale: 1.02 }}
               className="text-center relative group"
             >
-              <div className="border border-white/[0.08] rounded-2xl p-8 lg:p-10 backdrop-blur-sm bg-white/[0.03] hover:bg-white/[0.06] hover:border-white/[0.15] transition-all duration-500">
+              <div className="stat-card">
                 <span
                   className="block font-serif text-5xl sm:text-6xl lg:text-7xl italic mb-4"
                   style={{

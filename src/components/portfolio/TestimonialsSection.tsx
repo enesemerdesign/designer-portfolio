@@ -99,14 +99,14 @@ export default function TestimonialsSection() {
 
   return (
     <section className="py-28 lg:py-40 relative" ref={ref}>
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16">
+      <div className="container-section">
         {/* Section label */}
         <div className="flex items-center gap-6 mb-16 lg:mb-24">
           <motion.span
             initial={{ opacity: 0, x: -20 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="font-sans text-xs tracking-[0.25em] uppercase text-[var(--fg-faint)]"
+            className="section-label"
           >
             Müşteri Yorumları
           </motion.span>
@@ -114,7 +114,7 @@ export default function TestimonialsSection() {
             initial={{ scaleX: 0 }}
             animate={isInView ? { scaleX: 1 } : {}}
             transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="flex-1 h-px bg-[var(--border)] origin-left"
+            className="flex-1 divider origin-left"
           />
         </div>
 
@@ -125,7 +125,7 @@ export default function TestimonialsSection() {
           transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-16 lg:mb-20"
         >
-          <h2 className="font-serif text-4xl sm:text-5xl text-[var(--fg)] mb-4">
+          <h2 className="section-title mb-4">
             Müşterilerim ne <span className="italic">diyor?</span>
           </h2>
           <p className="font-sans text-[var(--fg-muted)] text-base max-w-md mx-auto">

@@ -64,14 +64,14 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={mounted ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 2, delay: 0.3 }}
-          className="absolute top-[20%] right-[10%] w-[500px] h-[500px] rounded-full pointer-events-none z-[1]"
+          className="absolute top-[20%] right-[10%] w-[60vw] h-[60vw] sm:w-[400px] sm:h-[400px] lg:w-[500px] lg:h-[500px] rounded-full pointer-events-none z-[1]"
           style={{
             background: "radial-gradient(circle, var(--gradient-orb) 0%, transparent 70%)",
           }}
         />
 
         {/* Main content */}
-        <div className="relative z-10 max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16 w-full flex-1 flex flex-col justify-center pt-32 lg:pt-40">
+        <div className="relative z-10 container-section w-full flex-1 flex flex-col justify-center pt-32 lg:pt-40">
           {/* Availability badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -117,15 +117,7 @@ export default function Hero() {
                 initial={{ y: "100%" }}
                 animate={mounted ? { y: 0 } : {}}
                 transition={{ duration: 1.2, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                className="font-serif text-[clamp(3rem,9vw,8rem)] leading-[1.1] tracking-[-0.03em] italic"
-                style={{
-                  background: "linear-gradient(135deg, var(--fg) 0%, var(--fg-mid) 50%, var(--fg) 100%)",
-                  backgroundSize: "200% 200%",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                  animation: "shimmer 4s ease-in-out infinite",
-                }}
+                className="font-serif text-[clamp(3rem,9vw,8rem)] leading-[1.1] tracking-[-0.03em] italic gradient-text"
               >
                 <Typewriter
                   text={[
@@ -197,7 +189,7 @@ export default function Hero() {
         </div>
 
         {/* Bottom */}
-        <div className="relative z-10 max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16 w-full pb-10">
+        <div className="relative z-10 container-section w-full pb-10">
           <motion.div
             initial={{ scaleX: 0 }}
             animate={mounted ? { scaleX: 1 } : {}}
